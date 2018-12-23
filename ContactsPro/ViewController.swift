@@ -8,19 +8,19 @@
 
 import UIKit
 
-var contactsArray = [Contact]()
+//var contactsArray = [Contact]()
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let contact1 = Contact(name: "Pulkit", phoneNo: "9582054664", imageName: "image name")
-        let contact2 = Contact(name: "Maxx", phoneNo: "9873476138", imageName: "anotherimage")
-        
-        contactsArray.append(contact1)
-        contactsArray.append(contact2)
-
-        UserDefaults.standard.set(contactsArray, forKey: "contact")
+//        let contact1 = Contact(name: "Pulkit", phoneNo: "9582054664", imageName: "image name")
+//        let contact2 = Contact(name: "Maxx", phoneNo: "9873476138", imageName: "anotherimage")
+//        
+//        contactsArray.append(contact1)
+//        contactsArray.append(contact2)
+//
+//        UserDefaults.standard.set(contactsArray, forKey: "contact")
 
     }
 

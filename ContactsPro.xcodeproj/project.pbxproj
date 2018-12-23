@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E578634721D01491008CF8FD /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E578634621D01491008CF8FD /* AddContactViewController.swift */; };
 		E5A482D621C9819B00084A99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A482D521C9819B00084A99 /* AppDelegate.swift */; };
 		E5A482D821C9819B00084A99 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A482D721C9819B00084A99 /* ViewController.swift */; };
 		E5A482DB21C9819B00084A99 /* ContactsPro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5A482D921C9819B00084A99 /* ContactsPro.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E578634621D01491008CF8FD /* AddContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
 		E5A482D221C9819B00084A99 /* ContactsPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactsPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A482D521C9819B00084A99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5A482D721C9819B00084A99 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				E5A482DC21C9819E00084A99 /* Assets.xcassets */,
 				E5A482DE21C9819E00084A99 /* LaunchScreen.storyboard */,
 				E5A482E121C9819E00084A99 /* Info.plist */,
+				E578634621D01491008CF8FD /* AddContactViewController.swift */,
 			);
 			path = ContactsPro;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5B80F9521CD914A00676B06 /* Contact.swift in Sources */,
+				E578634721D01491008CF8FD /* AddContactViewController.swift in Sources */,
 				E5A482D821C9819B00084A99 /* ViewController.swift in Sources */,
 				E5A482D621C9819B00084A99 /* AppDelegate.swift in Sources */,
 			);
