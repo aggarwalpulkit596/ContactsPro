@@ -66,6 +66,13 @@ class AddContactViewController: UIViewController,UITextFieldDelegate,UIImagePick
             present(alert,animated: true)
             return
         }
+        let image = contactImgView.image!
+        if let jpgImage = image.jpegData(compressionQuality: 0.8){
+            let urlPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+            let imagePath = urlPath[0].appendingPathComponent("image")
+        }
+        
+        
         
     }
     
