@@ -72,6 +72,22 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let contact = contactsArray[indexPath.row]
+        let imageName = contact.imageName
+        let name = contact.name
+        let phoneNo = contact.phoneNo
+
+        
+        let imagepath = imagePath(imageName: imageName)
+        let image = UIImage(contentsOfFile: imagepath.path)
+        
+        nameLabel.text = name
+        phoneLabel.text = phoneNo
+        contactImgView.image = image
+
+    }
+    
 
     
     func imagePath(imageName: String) -> URL {
