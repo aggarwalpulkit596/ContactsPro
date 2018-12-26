@@ -66,10 +66,27 @@ class AddContactViewController: UIViewController,UITextFieldDelegate,UIImagePick
             present(alert,animated: true)
             return
         }
+        
+        let name = nameTextField.text!
+        let phoneNo = phoneTextField.text!
+
+        let randomInt = arc4random_uniform(1000)
+        let imageName = "\(name.removeSpaces())\(randomInt)"
+        
+        let newContact = Contact(name: name, phoneNo: phoneNo, imageName: imageName)
+        contactsArray.insert(newContact, at: 0)
+        
+        let archivedData = NSKeyedArchiver.archivedData(withRootObject: contactsArray)
+        UserDefaults.standard.set(archivedData, forKey: "contact")
+        
+        
+        
         let image = contactImgView.image!
         if let jpgImage = image.jpegData(compressionQuality: 0.8){
             let urlPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-            let imagePath = urlPath[0].appendingPathComponent("image")
+            let imagePath = urlPath[0].appendingPathComponent(imageName)
+            
+            try? jpgImage.write(to: imagePath)
         }
         
         
