@@ -9,19 +9,83 @@
 import UIKit
 
 var contactsArray = [Contact]()
-class ViewController: UIViewController {
+class ViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
 
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var contactImgView: UIImageView!
+    @IBOutlet weak var contactCollectionView: UICollectionView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let contact1 = Contact(name: "Pulkit", phoneNo: "9582054664", imageName: "image name")
-//        let contact2 = Contact(name: "Maxx", phoneNo: "9873476138", imageName: "anotherimage")
-//        
-//        contactsArray.append(contact1)
-//        contactsArray.append(contact2)
-//
-//        UserDefaults.standard.set(contactsArray, forKey: "contact")
+        contactCollectionView.delegate = self
+        contactCollectionView.dataSource = self
+        
+        rounded(view: contactImgView, radius: 110)
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let unarchivedData = UserDefaults.standard.object(forKey: "contacts") as? Data
+        
+        if let unarchivedData = unarchivedData
+        {
+            contactsArray = NSKeyedUnarchiver.unarchiveObject(with: unarchivedData) as! [Contact]
+            
+            if(contactsArray.count > 0){
+                let singleContact = contactsArray[0]
+                nameLabel.text = singleContact.name
+                phoneLabel.text = singleContact.phoneNo
+                
+                let imagepath = imagePath(imageName: singleContact.imageName)
+                let image = UIImage(contentsOfFile: imagepath.path)
+                
+                contactImgView.image = image
+                
+                contactCollectionView.reloadData()
+                
+            }
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return contactsArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "contactCell", for: indexPath)
+        
+        let imgView = cell.viewWithTag(10) as! UIImageView
+        
+        let contact = contactsArray[indexPath.row]
+        let imageName = contact.imageName
+        
+        let imagepath = imagePath(imageName: imageName)
+        let image = UIImage(contentsOfFile: imagepath.path)
+        imgView.image = image
+        
+        rounded(view: imgView, radius: 50)
+        imgView.layer.borderColor = UIColor.white.cgColor
+        
+        return cell
+    }
+    
 
+    
+    func imagePath(imageName: String) -> URL {
+        let urlPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let imagePath = urlPath[0].appendingPathComponent(imageName)
+        return imagePath
+    }
+    
+    func rounded(view : UIView , radius : CGFloat) {
+        
+        view.layer.cornerRadius = radius
+        view.layer.borderColor = UIColor(red: 0.27, green: 0.69, blue: 0.60, alpha: 1.00).cgColor
+        view.layer.borderWidth  = 3
+        view.clipsToBounds = true
     }
 
 

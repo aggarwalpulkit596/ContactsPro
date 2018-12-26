@@ -77,7 +77,7 @@ class AddContactViewController: UIViewController,UITextFieldDelegate,UIImagePick
         contactsArray.insert(newContact, at: 0)
         
         let archivedData = NSKeyedArchiver.archivedData(withRootObject: contactsArray)
-        UserDefaults.standard.set(archivedData, forKey: "contact")
+        UserDefaults.standard.set(archivedData, forKey: "contacts")
         
         
         
